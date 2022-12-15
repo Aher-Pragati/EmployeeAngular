@@ -1,0 +1,39 @@
+<div class="container">
+    <table class="table">
+            <thead>
+                    <tr>
+                            <th scope="col">Employee ID</th>
+                            <th scope="col">Empolyee Name</th>
+                            <th scope="col">Employee Address</th>
+                            <th scope="col">Employy Salary</th>
+                            <th scope="col">Employee Gender</th>
+                            <th scope="col">Employee Contact</th>
+                            <th scope="col">Employee Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Employee DOB</th>
+                            <th scope="col">Employee Date Of Join</th>
+                            <th scope="col">Action</th>
+                            
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let data of employeeList">
+                            <td>{{data.employeeId}}</td>
+                            <td>{{data.employeeName}}</td>
+                            <td>{{data.employeeAddress}}</td>
+                            <td>{{data.employeeSalary}}</td>
+                            <td>{{data.employeeGender}}</td>
+                            <td>{{data.employeeContactNumber}}</td>
+                            <td>{{data.employeeEmail}}</td>
+                            <td>{{data.password}}</td>
+                            <td>{{data.employeeDOB}}</td>
+                            <td>{{data.employeeDateOfJoin}}</td>
+                            <td><a><i routerLink="/admin-dashboard/updateemployee/{{data.employeeId}}" style="color:darkgreen;" class="fa fa-pencil-square-o"aria-hidden="true"></i></a><a><i style="color: red;" (click)="deleteEmployee(data.employeeId)"class="fa fa-trash"aria-hidden="true"></i></a></td> 
+                          
+                    </tr>
+            </tbody>
+    </table>
+</div>
+
+
+

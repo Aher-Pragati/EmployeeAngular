@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table">
+            <thead>
+                    <tr>
+                            <th scope="col">Project ID</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Project Start Date</th>
+                            <th scope="col">Project End Date</th>
+                            <th scope="col">Project Status</th>
+                            <th scope="col">Action</th>
+                            
+                    </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of projectList">
+                        <td>{{data.projectId}}</td>
+                        <td>{{data.projectName}}</td>
+                        <td>{{data.startDate}}</td>
+                        <td>{{data.endDate}}</td>
+                        <td>{{data.projectStatus}}</td>
+                        <td><a><i routerLink="/admin-dashboard/updateproject/{{data.projectId}}" style="color:darkgreen;" class="fa fa-pencil-square-o"aria-hidden="true"></i></a><a><i style="color: red;" (click)="deleteProject(data.projectId)"class="fa fa-trash"aria-hidden="true"></i></a></td> 
+                        
+                    </tr>
+            </tbody>
+    </table>
+</div>

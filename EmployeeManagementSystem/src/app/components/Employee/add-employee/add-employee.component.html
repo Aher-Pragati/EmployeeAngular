@@ -1,0 +1,264 @@
+<h1 class="text-center">User Registration</h1>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-3">
+         <form [formGroup]="employeeReg" (ngSubmit)="register()" >
+         
+            <div class="form-group">
+                <label for="employeeName">Select Department</label>
+                <select   id="department"
+                        name="department"
+                       formControlName="department" >
+                    <option  *ngFor="let data of departmentList" [ngValue]="data">{{data.departmentName}}</option>
+                </select>
+             </div>
+
+
+            <div class="form-group">
+                <label for="employeeName">Employee Name</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeName"
+                        name="employeeName"
+                        formControlName="employeeName"
+                        aria-describedby="emailHelp">
+
+                <span *ngIf="(employeeReg.controls['employeeName'].touched) && (!employeeReg.controls['employeeName'].valid)">
+
+              
+                    <span *ngIf="employeeReg.controls['employeeName'].hasError('required')">
+                        Employee name is required !
+                    </span>
+                    
+                    <span *ngIf="employeeReg.controls['employeeName'].hasError('minlength')">
+                        Employee name should be minimum 4 characters !
+                    </span>
+
+                    <span *ngIf="employeeReg.controls['employeeName'].hasError('maxlength')">
+                        Employee name should be maximum 20 characters !
+                    </span>
+
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="employeeAddress">Employee Address</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeAddress"
+                        name="employeeAddress"
+                        formControlName="employeeAddress"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeAddress'].touched &&  !employeeReg.controls['employeeAddress'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeAddress'].hasError('required')">
+                                Employee Address is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeAddress'].hasError('minlength')">
+                                Employee Address should be minimum 2 characters !
+                            </span>
+        
+                            <span *ngIf="employeeReg.controls['employeeAddress'].hasError('maxlength')">
+                                Employee Address should be maximum 20 characters !
+                            </span>
+        
+                        </span>
+            </div>
+            <div class="form-group">
+                <label for="employeeSalary">Employee Salary</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeSalary"
+                        name="employeeSalary"
+                        formControlName="employeeSalary"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeSalary'].touched &&  !employeeReg.controls['employeeSalary'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeSalary'].hasError('required')">
+                                Employee Salary is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeSalary'].hasError('min')">
+                                Employee Salary should be minimum 3 digits !
+                            </span>
+        
+                            <span *ngIf="employeeReg.controls['employeeSalary'].hasError('max')">
+                                Employee Salary should be maximum 7 digits !
+                            </span>
+        
+                        </span>
+            </div>
+            <div class="form-group">
+                <label for="employeeGender">Employee Gender</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeGender"
+                        name="employeeGender"
+                        formControlName="employeeGender"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeGender'].touched &&  !employeeReg.controls['employeeGender'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeGender'].hasError('required')">
+                                Employee Gender is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeGender'].hasError('min')">
+                                Employee Gender should be minimun 3 characters  !
+                            </span>
+
+                            <span *ngIf="employeeReg.controls['employeeGender'].hasError('max')">
+                                Employee Gender should be maximum 9 characters !
+                            </span>
+        
+                        </span>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="employeeContactNumber">Employee Contact Number</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeContactNumber"
+                        name="employeeContactNumber"
+                        formControlName="employeeContactNumber"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeContactNumber'].touched &&  !employeeReg.controls['employeeContactNumber'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeContactNumber'].hasError('required')">
+                                Employee Contact Number is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeContactNumber'].hasError('minlength')">
+                                Employee Contact Number should be minimum 5 characters !
+                            </span>
+        
+                            <span *ngIf="employeeReg.controls['employeeContactNumber'].hasError('maxlength')">
+                                Employee Contact Number should be maximum 10 characters !
+                            </span>
+        
+                        </span>
+            </div>
+            
+            <div class="form-group">
+                <label for="employeeEmail">Employee Email</label>
+                <input  type="text"
+                        class="form-control"
+                        id="employeeEmail"
+                        name="employeeEmail"
+                        formControlName="employeeEmail"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeEmail'].touched &&  !employeeReg.controls['employeeEmail'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeEmail'].hasError('required')">
+                                Employee Email is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['password'].hasError('Email')">
+                                Please provide correct email !
+                            </span> 
+        
+                        </span>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputpassword">Password</label>
+                <input type="password"  class="form-control" 
+                       id="password"
+                       name="password"
+                       formControlName="password">
+
+                       <span *ngIf="employeeReg.controls['password'].touched &&  !employeeReg.controls['password'].valid">
+                        
+                        <span *ngIf="employeeReg.controls['password'].hasError('required')">
+                             Password is required !
+                        </span>
+
+                        <span *ngIf="employeeReg.controls['password'].hasError('minlength')">
+                            Employee Password should be minimum 4 characters !
+                        </span>
+    
+                        <span *ngIf="employeeReg.controls['password'].hasError('maxlength')">
+                            Employee Password should be maximum 10 characters !
+                        </span>
+                        </span>
+            </div>
+            
+            <div class="form-group">
+                <label for="employeeDOB">Employee Date of Birth</label>
+                <input  type="date"
+                        class="form-control"
+                        id="employeeDOB"
+                        name="employeeDOB"
+                        formControlName="employeeDOB"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeDOB'].touched &&  !employeeReg.controls['employeeDOB'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeDOB'].hasError('required')">
+                                Employee Date of Birth is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeDOB'].hasError('minlength')">
+                                Employee Date of birth should be minimum 8 digits !
+                            </span>
+        
+                            <span *ngIf="employeeReg.controls['employeeDOB'].hasError('maxlength')">
+                                Employee Date of birth should be maximum 10 digits !
+                            </span>
+        
+                        </span>
+            </div>
+
+            <div class="form-group">
+                <label for="employeeDateOfJoin">Employee Date Of Join</label>
+                <input  type="date"
+                        class="form-control"
+                        id="employeeDateOfJoin"
+                        name="employeeDateOfJoin"
+                        formControlName="employeeDateOfJoin"
+                        aria-describedby="emailHelp">
+
+                        <span *ngIf="employeeReg.controls['employeeDateOfJoin'].touched &&  !employeeReg.controls['employeeDateOfJoin'].valid">
+                        
+                            <span *ngIf="employeeReg.controls['employeeDateOfJoin'].hasError('required')">
+                                Employee Date Of Join is required !
+                            </span>
+                            
+                            <span *ngIf="employeeReg.controls['employeeDateOfJoin'].hasError('minlength')">
+                                Employee Date of Join should be minimum 8 digits !
+                            </span>
+        
+                            <span *ngIf="employeeReg.controls['employeeDateOfJoin'].hasError('maxlength')">
+                                Employee Date of Join should be maximum 10 digits !
+                            </span>
+        
+                        </span>
+            </div>
+
+
+            
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"  >Save</button>
+                <button type="reset" class="btn btn-primary"  >Reset</button>
+            </div>
+           
+            
+         </form>
+
+        </div>
+    </div>
+
+
+   

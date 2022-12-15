@@ -1,0 +1,77 @@
+
+<h1 class="text-center">Allocate Project</h1>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-3">
+         <form [formGroup]="allocateProjectReg" (ngSubmit)="register()" >
+
+            <div class="col-md-3">
+            <div class="form-group">
+                <label for="employee">Select Employee</label>
+                <select   id="employee"
+                        name="employee"
+                       formControlName="employee" >
+                    <option  *ngFor="let data of employeeList" [ngValue]="data">{{data.employeeName}}</option>
+                </select>
+             </div>
+            </div>
+            <div class="col-md-3">
+             <div class="form-group">
+                <label for="project">Select  Project</label>
+                <select   id="project"
+                        name="project"
+                       formControlName="project" >
+                    <option  *ngFor="let data of projectList" [ngValue]="data">{{data.projectName}}</option>
+                </select>
+             </div>
+            </div>
+         
+            <div class="form-group">
+                <label for="projectStatus">Allocate Project Status</label>
+                <input  type="text"
+                        class="form-control"
+                        id="projectStatus"
+                        name="projectStatus"
+                        formControlName="projectStatus"
+                        aria-describedby="emailHelp">
+
+                <span *ngIf="(allocateProjectReg.controls['projectStatus'].touched) && (!allocateProjectReg.controls['projectStatus'].valid)">
+
+              
+                    <span *ngIf="allocateProjectReg.controls['projectStatus'].hasError('required')">
+                        Allocate Project Status is required !
+                    </span>
+                    
+                    <span *ngIf="allocateProjectReg.controls['projectStatus'].hasError('minlength')">
+                        Allocate Project Status should be minimum 4 characters !
+                    </span>
+
+                    <span *ngIf="allocateProjectReg.controls['projectStatus'].hasError('maxlength')">
+                        Allocate Project Status should be maximum 50 characters !
+                    </span>
+
+                </span>
+            </div>
+           
+
+            
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"  >Save</button>
+                <button type="reset" class="btn btn-primary"  >Reset</button>
+            </div>
+           
+            
+         </form>
+
+        </div>
+    </div>
+
+
+   
